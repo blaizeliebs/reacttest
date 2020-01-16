@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Search from "../components/search"
+import Layout from '../components/layout';
+import SEO from '../components/seo'
+import Search from '../components/search'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -49,7 +49,7 @@ class Search extends Component {
     );
   }
 
-  updateInputValue(evt) {
+  updateInputValue = (evt) => {
     this.setState({
       inputValue: evt.target.value
     });
