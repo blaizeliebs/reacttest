@@ -1,17 +1,17 @@
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-filename-extension */
 /**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * GlobalStyles are called on this
  */
 
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import Header from "./header"
+import Header from './header';
 
 import { GlobalStyles } from './GlobalStyles';
+
 const GlobalStyle = createGlobalStyle`${GlobalStyles}`;
 
 const Wapper = styled.div`
@@ -21,23 +21,29 @@ const Wapper = styled.div`
   padding-top: 0;
 `;
 
-const Layout = ({ children }) => {
-  return (
-    <Fragment>
-      <GlobalStyle />
-      <Header siteTitle="Black Swan Test" />
-      <Wapper>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}
-        </footer>
-      </Wapper>
-    </Fragment>
-  )
-}
+/**
+ * previous was :
+ * const Layout = ({ children }) => {
+ * linting rule :
+ * Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`.eslint(arrow-body-style)
+ */
+const Layout = ({ children }) => (
+  <>
+    <GlobalStyle />
+    <Header siteTitle="Black Swan Test" />
+    <Wapper>
+      <main>{children}</main>
+      <footer>
+        ©
+        {new Date().getFullYear()}
+      </footer>
+    </Wapper>
+  </>
+);
 
+// children need to always be required as this is a `wrapping` function
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
 export default Layout;

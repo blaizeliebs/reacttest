@@ -1,18 +1,21 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo'
-import Search from '../components/search'
+import SEO from '../components/seo';
+import Search from '../components/search';
 
+// importing bootstrap css as this is the base for reactstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const IndexPage = () => (
   <Layout>
+    { /** N.B  SEO functionality comes with gatsbyjs and I am not particularly using it for now. */ }
     <SEO title="Home" />
+    { /** My Search app starts from here */ }
     <Search />
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

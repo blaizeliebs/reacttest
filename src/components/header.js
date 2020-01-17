@@ -1,7 +1,13 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
-import styled from 'styled-components'
+/* eslint-disable react/jsx-filename-extension */
+/**
+ * Link is default with GatsbyJS but I can only assume it is the same as `react-router`
+ * I have not had the time to break it down yet and only using it here
+ * N.B I took the compnay logo :)
+ */
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
 
 const HeaderWapper = styled.header`
   background: black;
@@ -29,13 +35,13 @@ const HeaderTitle = styled.h1`
 const Header = ({ siteTitle }) => (
   <HeaderWapper>
     <HeaderContainer>
-      <HeaderImage src="https://fethr.aero/img/fethr/logo.svg" title={ siteTitle } />
+      <HeaderImage src="https://fethr.aero/img/fethr/logo.svg" title={siteTitle} />
       <HeaderTitle>
         <Link
           to="/"
           style={{
-            color: `white`,
-            textDecoration: `none`,
+            color: 'white',
+            textDecoration: 'none',
           }}
         >
           {siteTitle}
@@ -43,14 +49,14 @@ const Header = ({ siteTitle }) => (
       </HeaderTitle>
     </HeaderContainer>
   </HeaderWapper>
-)
+);
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: '',
+};
 
-export default Header
+export default Header;

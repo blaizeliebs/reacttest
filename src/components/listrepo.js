@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
 
-import { Link } from 'gatsby'
 import * as _ from 'lodash';
 import styled from 'styled-components';
 import {
@@ -14,17 +14,9 @@ import {
   ModalFooter,
   Row,
   Col,
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Card,
-  CardTitle,
-  CardText,
 } from 'reactstrap';
-import classnames from 'classnames';
-import ReactMinimalPieChart from 'react-minimal-pie-chart';
+
+import MoreDetails from './moreDetails';
 
 const ListContainer = styled(ListGroup)`
     margin-left: 0;
@@ -48,6 +40,13 @@ const IconText = styled.span`
   font-style: italic;
 `;
 
+/**
+ * styled components allow for props
+ * this lets you change styles according to a prop
+ * this prop could also pass through the change itself
+ * in this case it is just a boolean `true`
+*/
+
 const CenterRow = styled(Row)`
   align-items: center;
   justify-content: center;
@@ -59,35 +58,9 @@ const CenterRow = styled(Row)`
     if (props.background) {
       return `
         background-color: rgb(242, 242, 236);
-      `
+      `;
     }
   }}
-`;
-
-const Key = styled.div`
-  width: 50px;
-  height: 50px;
-  float: right;
-  ${(props) => {
-    if (props.color) {
-      return `
-        background-color: ${props.color};
-      `
-    }
-  }}
-  &:before {
-    ${(props) => {
-      if (props.title) {
-        return `
-            display: block;
-            content: '${props.title}';
-            float: left;
-            color: ${props.color};
-          }
-        `
-      }
-    }}
-  }
 `;
 
 const ResultsFound = styled.h5`
@@ -119,11 +92,12 @@ class ListRepo extends Component {
 
   render() {
     const { repos } = this.props;
+
     return (
-      // eslint-disable-next-line react/jsx-filename-extension
       <>
         <ResultsFound>
-          Results Found: {repos.total_count ? repos.total_count : 0}
+          Results Found:
+          {repos.total_count ? repos.total_count : 0}
         </ResultsFound>
         <Jumbotron>
           <ListContainer>
@@ -171,56 +145,10 @@ class ListRepo extends Component {
                         <strong>{ item.open_issues_count }</strong>
                       </Col>
                     </CenterRow>
-                    <CenterRow>
-                      <Col md="1">
-                        <Key color="#E38627" title="OPEN" />
-                        <Key color="#C13C37" title="CLOSED" />
-                      </Col>
-                      <Col md="4">
-                        <ReactMinimalPieChart
-                          animate={false}
-                          animationDuration={500}
-                          animationEasing="ease-out"
-                          cx={50}
-                          cy={50}
-                          data={[
-                            {
-                              color: '#E38627',
-                              title: 'OPEN',
-                              value: item.open_issues_count
-                            },
-                            {
-                              color: '#C13C37',
-                              title: 'CLOSED',
-                              value: 29276 - item.open_issues_count
-                            }
-                          ]}
-                          label
-                          labelPosition={60}
-                          labelStyle={{
-                            fontFamily: 'sans-serif',
-                            fontSize: '5px'
-                          }}
-                          lengthAngle={360}
-                          lineWidth={20}
-                          onClick={undefined}
-                          onMouseOut={undefined}
-                          onMouseOver={undefined}
-                          paddingAngle={18}
-                          radius={50}
-                          rounded
-                          startAngle={0}
-                          viewBoxSize={[
-                            100,
-                            100
-                          ]}
-                        />
-                      </Col>
-                    </CenterRow>
-
+                    <MoreDetails repoName={item.full_name} openCount={item.open_issues_count} repoIssuesUrl={`${item.html_url}/issues/`} />
                   </ModalBody>
                   <ModalFooter>
-                    <a className="btn btn-primary" href={item.html_url} target="_blank" rel="noopener norefferer"> View Repo on GitHub </a>
+                    <a className="btn btn-primary" href={item.html_url} target="_blank" rel="noopener noreferrer"> View Repo on GitHub </a>
                     {' '}
                     <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                   </ModalFooter>

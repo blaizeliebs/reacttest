@@ -1,5 +1,11 @@
+/**
+ * Styled Components Global styles, this is the default CSS I took from GatsbyJS and converted it,
+ * This contains default styling for the site
+ */
+
 import { css } from 'styled-components';
 
+// eslint-disable-next-line import/prefer-default-export
 export const GlobalStyles = css`
   html {
     font-family: sans-serif;
