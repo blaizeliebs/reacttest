@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
-    description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+    title: 'GitHub repo search a Black Swan Data (FETHR) test',
+    description: 'This little app searches the GitHub api for a given search term and allows you to view certain details for each repo.',
+    author: 'Blaize Liebenberg',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -18,13 +18,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'gatsby-starter-fether-test',
+        short_name: 'fether-test',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#000000',
+        theme_color: '#000000',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/fethr-icon.png', // This path is relative to the root of the site.
       },
     },
     'styled-components',

@@ -21,7 +21,9 @@
     ```shell
     cd blackswan-tests/
     gatsby develop
+    ```
     or
+    ```shell
     yarn develop
     ```
 

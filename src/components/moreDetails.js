@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import {
   Row,
@@ -86,7 +86,7 @@ class MoreDetails extends Component {
     const { items } = this.state.issues.value;
 
     return (
-      <>
+      <Fragment>
         <CenterRow>
           <Col md="2">
             <Key color="#E38627" title={`OPEN (${openCount})`} />
@@ -94,7 +94,7 @@ class MoreDetails extends Component {
           </Col>
           <Col md="4">
             <ReactMinimalPieChart
-              animate={false}
+              animate={true}
               animationDuration={500}
               animationEasing="ease-out"
               cx={50}
@@ -138,7 +138,7 @@ class MoreDetails extends Component {
             <Tabs issues={items} issuesUrl={repoIssuesUrl} />
           </Col>
         </CenterRow>
-      </>
+      </Fragment>
     );
   }
 }

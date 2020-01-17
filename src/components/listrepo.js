@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-fragments */
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
-
+import PropTypes from 'prop-types';
 import * as _ from 'lodash';
 import styled from 'styled-components';
 import {
@@ -63,6 +64,10 @@ const CenterRow = styled(Row)`
   }}
 `;
 
+const ListGroupItemPointer = styled(ListGroupItem)`
+  cursor: pointer;
+`;
+
 const ResultsFound = styled.h5`
   margin-top: 20px;
 `;
@@ -79,7 +84,8 @@ class ListRepo extends Component {
   }
 
   toggle(item) {
-    if (this.state.modal) {
+    const { modal } = this.state;
+    if (modal) {
       this.setState({
         modal: null,
       });
@@ -92,9 +98,10 @@ class ListRepo extends Component {
 
   render() {
     const { repos } = this.props;
+    const { modal } = this.state;
 
     return (
-      <>
+      <Fragment>
         <ResultsFound>
           Results Found:
           {repos.total_count ? repos.total_count : 0}
@@ -103,11 +110,11 @@ class ListRepo extends Component {
           <ListContainer>
             {_.map(repos.items, (item, index) => (
               <Fragment key={index}>
-                <ListGroupItem className={`repolist-${item.id}`} color="danger" onClick={this.toggle.bind(this, item)}>
+                <ListGroupItemPointer className={`repolist-${item.id}`} color="danger" onClick={this.toggle.bind(this, item)}>
                   { item.full_name }
-                </ListGroupItem>
+                </ListGroupItemPointer>
                 <RepoModal
-                  isOpen={this.state.modal === `repo-${item.id}`}
+                  isOpen={modal === `repo-${item.id}`}
                   toggle={this.toggle}
                   className={`repo-${item.id}`}
                   modalTransition={{ timeout: 700 }}
@@ -157,9 +164,18 @@ class ListRepo extends Component {
             ))}
           </ListContainer>
         </Jumbotron>
-      </>
+      </Fragment>
     );
   }
 }
+
+ListRepo.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  repos: PropTypes.object,
+};
+
+ListRepo.defaultProps = {
+  repos: '',
+};
 
 export default ListRepo;

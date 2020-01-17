@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-fragments */
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import * as _ from 'lodash';
 import {
   TabContent,
@@ -27,7 +29,7 @@ const Tabs = (props) => {
   };
 
   return (
-    <div>
+    <Fragment>
       <Nav tabs>
         <NavItem>
           <NavLink
@@ -125,8 +127,19 @@ const Tabs = (props) => {
           </Row>
         </TabPane>
       </TabContent>
-    </div>
+    </Fragment>
   );
+};
+
+Tabs.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  issues: PropTypes.object,
+  issuesUrl: PropTypes.string,
+};
+
+Tabs.defaultProps = {
+  issues: '',
+  issuesUrl: '',
 };
 
 export default Tabs;

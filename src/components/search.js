@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-filename-extension */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import styled from 'styled-components';
 import { Input, Spinner } from 'reactstrap';
@@ -49,7 +49,7 @@ class Search extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <h1>GitHub Repo</h1>
         <Input type="text" name="search" id="searchRepo" placeholder="type a repo name" value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} />
         {
@@ -57,7 +57,7 @@ class Search extends Component {
             ? <CenterdSpinner type="grow" />
             : <ListRepo repos={this.state.repos} />
         }
-      </>
+      </Fragment>
     );
   }
 }
