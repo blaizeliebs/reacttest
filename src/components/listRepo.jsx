@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-fragments */
-/* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import * as _ from 'lodash';
@@ -155,7 +154,7 @@ class ListRepo extends Component {
                     <MoreDetails repoName={item.full_name} openCount={item.open_issues_count} repoIssuesUrl={`${item.html_url}/issues/`} />
                   </ModalBody>
                   <ModalFooter>
-                    <a className="btn btn-primary" href={item.html_url} target="_blank" rel="noopener noreferrer"> View Repo on GitHub </a>
+                    <a className="btn btn-primary" href={item.html_url} target="_blank" rel="noopener noreferrer">View Repo on GitHub</a>
                     {' '}
                     <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                   </ModalFooter>

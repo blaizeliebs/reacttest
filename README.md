@@ -1,4 +1,5 @@
 ## Quick info
+
 1. GatsbyJs Build (to save time)
 2. using Styled Components (this required me to change and remove GatsbyJS default CSS)
 3. using eslinting extending the airbnb linting.
@@ -22,7 +23,9 @@
     cd blackswan-tests/
     gatsby develop
     ```
+
     or
+
     ```shell
     yarn develop
     ```

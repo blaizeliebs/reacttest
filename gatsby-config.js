@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'GitHub repo search a Black Swan Data (FETHR) test',
-    description: 'This little app searches the GitHub api for a given search term and allows you to view certain details for each repo.',
+    description:
+      'This little app searches the GitHub api for a given search term and allows you to view certain details for each repo.',
     author: 'Blaize Liebenberg',
   },
   plugins: [
@@ -32,4 +33,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

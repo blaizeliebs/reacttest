@@ -1,5 +1,4 @@
 /* eslint-disable import/no-named-as-default */
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 
 import Layout from '../components/layout';
@@ -11,13 +10,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const IndexPage = () => (
   <Layout>
-    {
-      /**
-       * N.B  SEO functionality comes with gatsbyjs and I am not particularly using it for now.
-       */
-    }
-    <SEO title="Home" />
-    { /** My Search app starts from here */ }
+    {/**
+     * N.B  SEO functionality comes with gatsbyjs and I am not particularly using it for now.
+     */}
+    <SEO title="Search" />
+    {/** My Search app starts from here */}
     <Search />
   </Layout>
 );

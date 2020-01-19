@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 /**
  * Link is default with GatsbyJS but I can only assume it is the same as `react-router`
  * I have not had the time to break it down yet and only using it here
@@ -23,7 +22,7 @@ const HeaderContainer = styled.div`
 
 const HeaderImage = styled.img`
   float: left;
-  margin: 15PX 20PX;
+  margin: 15px 20px;
   width: 100px;
 `;
 
@@ -35,7 +34,10 @@ const HeaderTitle = styled.h1`
 const Header = ({ siteTitle }) => (
   <HeaderWapper>
     <HeaderContainer>
-      <HeaderImage src="https://fethr.aero/img/fethr/logo.svg" title={siteTitle} />
+      <HeaderImage
+        src="https://fethr.aero/img/fethr/logo.svg"
+        title={siteTitle}
+      />
       <HeaderTitle>
         <Link
           to="/"

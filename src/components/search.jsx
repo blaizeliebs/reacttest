@@ -1,5 +1,4 @@
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
 
 import styled from 'styled-components';
@@ -8,10 +7,10 @@ import { Input, Spinner } from 'reactstrap';
 import ListRepo from './listRepo';
 
 const CenterdSpinner = styled(Spinner)`
-    display: block;
-    margin: 20px auto 0 auto;
-    width: '3rem';
-    height: '3rem';
+  display: block;
+  margin: 20px auto 0 auto;
+  width: '3rem';
+  height: '3rem';
 `;
 
 class Search extends Component {
@@ -28,7 +27,10 @@ class Search extends Component {
   getGitHub = () => {
     this.setState({ loading: true });
     return new Promise((resolve, reject) => {
-      fetch(`https://api.github.com/search/repositories?q=${this.state.inputValue}`, { credentials: 'same-origin' })
+      fetch(
+        `https://api.github.com/search/repositories?q=${this.state.inputValue}`,
+        { credentials: 'same-origin' },
+      )
         .then((response) => response.json())
         .then((data) => resolve(this.setState({ repos: data })))
         .then(() => this.setState({ loading: false }))
@@ -50,13 +52,20 @@ class Search extends Component {
   render() {
     return (
       <Fragment>
-        <h1>GitHub Repo</h1>
-        <Input type="text" name="search" id="searchRepo" placeholder="type a repo name" value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} />
-        {
-          this.state.loading
-            ? <CenterdSpinner type="grow" />
-            : <ListRepo repos={this.state.repos} />
-        }
+        <h1>GitHub Repo Search</h1>
+        <Input
+          type="text"
+          name="search"
+          id="searchRepo"
+          placeholder="type a repo name"
+          value={this.state.inputValue}
+          onChange={(evt) => this.updateInputValue(evt)}
+        />
+        {this.state.loading ? (
+          <CenterdSpinner type="grow" />
+        ) : (
+          <ListRepo repos={this.state.repos} />
+        )}
       </Fragment>
     );
   }

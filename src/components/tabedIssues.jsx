@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-fragments */
-/* eslint-disable react/jsx-filename-extension */
 import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import * as _ from 'lodash';
@@ -34,7 +32,9 @@ const Tabs = (props) => {
         <NavItem>
           <NavLink
             className={classnames({ active: activeTab === '1' })}
-            onClick={() => { toggle('1'); }}
+            onClick={() => {
+              toggle('1');
+            }}
           >
             All Issues
           </NavLink>
@@ -42,7 +42,9 @@ const Tabs = (props) => {
         <NavItem>
           <NavLink
             className={classnames({ active: activeTab === '2' })}
-            onClick={() => { toggle('2'); }}
+            onClick={() => {
+              toggle('2');
+            }}
           >
             Open Issues
           </NavLink>
@@ -50,7 +52,9 @@ const Tabs = (props) => {
         <NavItem>
           <NavLink
             className={classnames({ active: activeTab === '3' })}
-            onClick={() => { toggle('3'); }}
+            onClick={() => {
+              toggle('3');
+            }}
           >
             Closed Issues
           </NavLink>
@@ -65,14 +69,24 @@ const Tabs = (props) => {
                 <ul>
                   {_.map(issues, (item, index) => (
                     <li key={index}>
-                      { item.title }
-                      {' '}
-                      <a href={item.html_url} target="_blank" rel="noopener noreferrer" title="View Issue">
+                      {item.title}{' '}
+                      <a
+                        href={item.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="View Issue"
+                      >
                         View Issue
                       </a>
                     </li>
                   ))}
-                  <a href={issuesUrl} className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer" title="View ALL Issue">
+                  <a
+                    href={issuesUrl}
+                    className="btn btn-primary btn-block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View ALL Issue"
+                  >
                     View ALL Issue
                   </a>
                 </ul>
@@ -86,16 +100,26 @@ const Tabs = (props) => {
               <HoldIssues>
                 <h4>All Open Issues</h4>
                 <ul>
-                  {_.map(_.filter(issues, { 'state': 'open' }), (item, index) => (
+                  {_.map(_.filter(issues, { state: 'open' }), (item, index) => (
                     <li key={index}>
-                      { item.title }
-                      {' '}
-                      <a href={item.html_url} target="_blank" rel="noopener noreferrer" title="View Issue">
+                      {item.title}{' '}
+                      <a
+                        href={item.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="View Issue"
+                      >
                         View Issue
                       </a>
                     </li>
                   ))}
-                  <a href={`${issuesUrl}?q=is%3Aopen+is%3Aissue`} className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer" title="View OPEN Issue">
+                  <a
+                    href={`${issuesUrl}?q=is%3Aopen+is%3Aissue`}
+                    className="btn btn-primary btn-block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View OPEN Issue"
+                  >
                     View OPEN Issue
                   </a>
                 </ul>
@@ -109,16 +133,29 @@ const Tabs = (props) => {
               <HoldIssues>
                 <h4>All Closed Issues</h4>
                 <ul>
-                  {_.map(_.filter(issues, { 'state': 'closed' }), (item, index) => (
-                    <li key={index}>
-                      { item.title }
-                      {' '}
-                      <a href={item.html_url} target="_blank" rel="noopener noreferrer" title="View Issue">
-                        View Issue
-                      </a>
-                    </li>
-                  ))}
-                  <a href={`${issuesUrl}?q=is%3Aissue+is%3Aclosed`} className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer" title="View CLOSED Issue">
+                  {_.map(
+                    _.filter(issues, { state: 'closed' }),
+                    (item, index) => (
+                      <li key={index}>
+                        {item.title}{' '}
+                        <a
+                          href={item.html_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="View Issue"
+                        >
+                          View Issue
+                        </a>
+                      </li>
+                    ),
+                  )}
+                  <a
+                    href={`${issuesUrl}?q=is%3Aissue+is%3Aclosed`}
+                    className="btn btn-primary btn-block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View CLOSED Issue"
+                  >
                     View CLOSED Issue
                   </a>
                 </ul>

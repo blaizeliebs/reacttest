@@ -1,10 +1,6 @@
-/* eslint-disable react/jsx-filename-extension */
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import {
-  Row,
-  Col,
-} from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import ReactMinimalPieChart from 'react-minimal-pie-chart';
 
 import getGitHubIssues from '../helpers/getGitHubIssues';
@@ -43,16 +39,16 @@ const Key = styled.div`
     }
   }}
   &:before {
-  ${(props) => {
-    if (props.title) {
-      return `
+    ${(props) => {
+      if (props.title) {
+        return `
         display: block;
         content: '${props.title} Issues';
         float: left;
         color: black;
       `;
-    }
-  }}
+      }
+    }}
   }
 `;
 
@@ -71,14 +67,16 @@ class MoreDetails extends Component {
   componentDidMount() {
     const { repoName } = this.props;
 
-    this.extractPromise(repoName).then((issues) => this.setState({
-      issues,
-    }));
+    this.extractPromise(repoName).then((issues) =>
+      this.setState({
+        issues,
+      }),
+    );
   }
 
   extractPromise = (repoName) => {
-    return getGitHubIssues(repoName)
-  }
+    return getGitHubIssues(repoName);
+  };
 
   render() {
     const { openCount, repoIssuesUrl } = this.props;
@@ -89,8 +87,14 @@ class MoreDetails extends Component {
       <Fragment>
         <CenterRow>
           <Col md="2">
-            <Key color="#E38627" title={`OPEN (${openCount})`} />
-            <Key color="#C13C37" title={`CLOSED (${value.total_count - openCount})`} />
+            <Key
+              color="#E38627"
+              title={`OPEN (${openCount})`}
+            />
+            <Key
+              color="#C13C37"
+              title={`CLOSED (${value.total_count - openCount})`}
+            />
           </Col>
           <Col md="4">
             <ReactMinimalPieChart
@@ -126,10 +130,7 @@ class MoreDetails extends Component {
               radius={50}
               rounded
               startAngle={0}
-              viewBoxSize={[
-                100,
-                100,
-              ]}
+              viewBoxSize={[100, 100]}
             />
           </Col>
         </CenterRow>
