@@ -34,7 +34,7 @@ const Layout = ({ children }) => (
     <Header siteTitle="Black Swan Test" />
     <Wapper>
       <main>{children}</main>
-      <footer>©{new Date().getFullYear()}</footer>
+      <footer>{`©${new Date().getFullYear()}`}</footer>
     </Wapper>
   </Fragment>
 );
