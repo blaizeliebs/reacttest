@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header
+  className="sc-AykKC cqwttb"
+>
+  <div
+    className="sc-AykKD eUsUCb"
+  >
+    <img
+      className="sc-AykKE bqkqdz"
+      src="https://fethr.aero/img/fethr/logo.svg"
+      title="Default Starter"
+    />
+    <h1
+      className="sc-AykKF cNJupD"
+    >
+      <a
+        href="/"
+        style={
+          Object {
+            "color": "white",
+            "textDecoration": "none",
+          }
+        }
+      >
+        Default Starter
+      </a>
+    </h1>
+  </div>
+</header>
+`;

@@ -1,11 +1,20 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-starter-fether-test",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "This little app searches the GitHub api for a given search term and allows you to view certain details for each repo.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Blaize Liebenberg",
   "dependencies": {
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.27",
+    "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "gatsby": "^2.18.12",
+    "gatsby-cli": "^2.8.27",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-offline": "^3.0.27",
@@ -13,10 +22,17 @@
     "gatsby-plugin-sharp": "^2.3.5",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-sharp": "^2.3.7",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-cli": "^24.9.0",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-minimal-pie-chart": "^6.0.1",
+    "react-test-renderer": "^16.12.0",
+    "reactstrap": "^8.2.0",
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
@@ -32,8 +48,15 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "lint": "eslint src",
+    "test": "jest"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
