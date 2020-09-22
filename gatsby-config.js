@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'GitHub repo search a Black Swan Data (FETHR) test',
+    title: 'GitHub repo search a ReactJs test',
     description:
       'This little app searches the GitHub api for a given search term and allows you to view certain details for each repo.',
     author: 'Blaize Liebenberg',

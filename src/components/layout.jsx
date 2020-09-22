@@ -31,7 +31,7 @@ const Wapper = styled.div`
 const Layout = ({ children }) => (
   <Fragment>
     <GlobalStyle />
-    <Header siteTitle="Black Swan Test" />
+    <Header siteTitle="ReactJs Test" />
     <Wapper>
       <main>{children}</main>
       <footer>{`©${new Date().getFullYear()}`}</footer>
