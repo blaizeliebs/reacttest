@@ -6,6 +6,7 @@
 4. frontend framework is reactstrap, this is a libabry of components built in react using bootstrap as its base.
 5. lodash used for mapping through data
 6. Started with JEST testing got a basic test up and running but not much further
+7. In the folder webpackZippedVersion is that exactly, this project on a webpack version which is not built with gastbyjs
 
 ## 🚀 Quick start on viewing the app
 
